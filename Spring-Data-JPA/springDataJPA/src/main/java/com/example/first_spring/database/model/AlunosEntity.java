@@ -1,9 +1,8 @@
-package com.example.first_spring.model;
+package com.example.first_spring.database.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
