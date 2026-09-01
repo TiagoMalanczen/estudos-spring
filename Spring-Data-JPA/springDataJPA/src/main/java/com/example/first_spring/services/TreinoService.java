@@ -45,7 +45,7 @@ public class TreinoService {
         TreinoEntity treino = TreinoEntity.builder()
                 .nome(treinoDTO.getNome())
                 .alunosEntity(aluno)
-                .exercicios(exercicios) 
+                .exercicios(exercicios)
                 .build();
 
         treinosRepository.save(treino);

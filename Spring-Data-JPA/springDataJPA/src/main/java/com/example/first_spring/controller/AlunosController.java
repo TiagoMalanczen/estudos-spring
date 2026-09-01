@@ -32,10 +32,16 @@ public class AlunosController {
     public List<AlunosEntity> listarAlunos(){
         return alunosService.listarAll();
     }
-
+    
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public AvaliacoesFisicasEntity mostrarAvaliacao(@PathVariable Integer id){
         return alunosService.getALunoAvaliacao(id);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarAluno(@PathVariable Integer id){
+        alunosService.deletarAluno(id);
     }
 }
