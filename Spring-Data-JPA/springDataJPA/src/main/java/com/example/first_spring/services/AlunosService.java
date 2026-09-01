@@ -36,7 +36,7 @@ public class AlunosService {
         AlunosEntity aluno = alunoRepository.findByIdFEtch(alunoId)
                 .orElseThrow(() -> new RuntimeException("Aluno nao encontrado"));
 
-        AvaliacoesFisicasEntity avaliacao = aluno.getAvaliacaoFisica();
+        AvaliacoesFisicasEntity avaliacao  = aluno.getAvaliacaoFisica();
 
         if(avaliacao == null){
             throw new RuntimeException("Avaliacao fisica nao encontrada");

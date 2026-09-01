@@ -20,9 +20,9 @@ public class AlunosEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String nome;
-    @Column(nullable = true, unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @OneToOne(cascade = CascadeType.ALL)
