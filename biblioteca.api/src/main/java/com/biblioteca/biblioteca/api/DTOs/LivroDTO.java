@@ -4,6 +4,7 @@ package com.biblioteca.biblioteca.api.DTOs;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Setter
@@ -17,7 +18,7 @@ public class LivroDTO {
     private String titulo;
     @NotBlank
     private String isbm;
-    @NotBlank
+    @NotNull
     private int quantidadeDisponivel;
 
 }

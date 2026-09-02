@@ -5,6 +5,7 @@ import com.biblioteca.biblioteca.api.DTOs.UsuarioDTO;
 import com.biblioteca.biblioteca.api.database.model.LivroEntity;
 import com.biblioteca.biblioteca.api.database.model.UsuarioEntity;
 import com.biblioteca.biblioteca.api.database.repository.UsuarioRespository;
+import com.biblioteca.biblioteca.api.exceptions.RecursoNaoencontradoException;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -41,10 +42,10 @@ public class UsuarioService {
                 .orElse(null);
 
         if(identificadorEmail != null){
-            throw new RuntimeException("Usuario com email ja cadastrado");
+            throw new RecursoNaoencontradoException("Usuario com email ja cadastrado");
         }
         if(identificadorMatricula != null){
-            throw new RuntimeException("Usuario com matricula ja cadastrada");
+            throw new RecursoNaoencontradoException("Usuario com matricula ja cadastrada");
         }
 
         UsuarioEntity usuarioEntity = usuarioRespository

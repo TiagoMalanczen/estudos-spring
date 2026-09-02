@@ -3,6 +3,7 @@ package com.biblioteca.biblioteca.api.services;
 import com.biblioteca.biblioteca.api.DTOs.LivroDTO;
 import com.biblioteca.biblioteca.api.database.model.LivroEntity;
 import com.biblioteca.biblioteca.api.database.repository.LivroRespository;
+import com.biblioteca.biblioteca.api.exceptions.RegrasNegocioException;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ public class LivroService {
                 .orElse(null);
 
         if(livro != null){
-             throw new RuntimeException("Livro ja cadastrado com esse Isbm");
+             throw new RegrasNegocioException("Livro ja cadastrado com esse Isbm");
         }
 
         livroRespository.save(LivroEntity.builder()

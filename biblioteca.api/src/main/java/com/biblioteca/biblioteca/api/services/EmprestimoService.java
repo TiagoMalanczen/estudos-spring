@@ -10,6 +10,8 @@ import com.biblioteca.biblioteca.api.database.model.UsuarioEntity;
 import com.biblioteca.biblioteca.api.database.repository.EmprestimoRepository;
 import com.biblioteca.biblioteca.api.database.repository.LivroRespository;
 import com.biblioteca.biblioteca.api.database.repository.UsuarioRespository;
+import com.biblioteca.biblioteca.api.exceptions.RecursoNaoencontradoException;
+import com.biblioteca.biblioteca.api.exceptions.RegrasNegocioException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,10 +59,10 @@ public class EmprestimoService {
     @Transactional
     public void devolverLivro(Integer emprestimoId){
         EmprestimoEntity emprestimoEntity = emprestimoRepository.findById(emprestimoId)
-                .orElseThrow(() -> new RuntimeException("Emprestimo nao encontrado"));
+                .orElseThrow(() -> new RecursoNaoencontradoException("Emprestimo nao encontrado"));
 
         if(emprestimoEntity.getStatusEmprestimo() != StatusEmprestimo.ATIVO){
-            throw new RuntimeException("Emprestimo ja encerrado");
+            throw new RegrasNegocioException("Emprestimo ja encerrado");
         }
 
         emprestimoEntity.setDataDevolucaoEfetiva(LocalDate.now());
