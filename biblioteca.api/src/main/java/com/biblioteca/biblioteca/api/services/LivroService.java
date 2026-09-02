@@ -3,9 +3,10 @@ package com.biblioteca.biblioteca.api.services;
 import com.biblioteca.biblioteca.api.DTOs.LivroDTO;
 import com.biblioteca.biblioteca.api.database.model.LivroEntity;
 import com.biblioteca.biblioteca.api.database.repository.LivroRespository;
-import com.biblioteca.biblioteca.api.exceptions.RegrasNegocioException;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,10 @@ import java.util.List;
 public class LivroService {
 
     private final LivroRespository livroRespository;
+
+    public Page<LivroEntity> mostrarTodos(int pagina, int itens){
+        return livroRespository.findAll(PageRequest.of(pagina, itens));
+    }
 
     public List<LivroDTO> buscarLivros(){
         return livroRespository.findAll()
@@ -33,7 +38,7 @@ public class LivroService {
                 .orElse(null);
 
         if(livro != null){
-             throw new RegrasNegocioException("Livro ja cadastrado com esse Isbm");
+             throw new RuntimeException("Livro ja cadastrado com esse Isbm");
         }
 
         livroRespository.save(LivroEntity.builder()
