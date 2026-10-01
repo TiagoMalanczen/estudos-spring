@@ -1,9 +1,13 @@
 package com.bookstrore.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Properties;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -18,6 +22,10 @@ public class AuthorEntity {
 
     @Column(unique = true, nullable = false)
     private String name;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToMany(mappedBy = "authors", fetch = FetchType.LAZY)
+    private Set<BookEntity> books = new HashSet<>();
 
 
 }

@@ -1,6 +1,7 @@
 package com.bookstrore.jpa.model;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,5 +20,10 @@ public class ReviewEntity {
 
     @Column(unique = true, nullable = false)
     private String comment;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToOne
+    @JoinColumn(name = "book_id")
+    private BookEntity book;
 
 }
