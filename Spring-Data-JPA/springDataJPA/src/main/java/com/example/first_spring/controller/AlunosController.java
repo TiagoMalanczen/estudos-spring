@@ -32,7 +32,7 @@ public class AlunosController {
     public List<AlunosEntity> listarAlunos(){
         return alunosService.listarAll();
     }
-    
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public AvaliacoesFisicasEntity mostrarAvaliacao(@PathVariable Integer id){

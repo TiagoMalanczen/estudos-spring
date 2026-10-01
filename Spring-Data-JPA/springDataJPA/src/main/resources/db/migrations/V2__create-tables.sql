@@ -1,0 +1,7 @@
+CREATE TABLE tb_alunos (
+      id BIGINT AUTO_INCREMENT PRIMARY KEY,
+      nome VARCHAR(150) NOT NULL,
+      cpf VARCHAR(14) NOT NULL UNIQUE,
+      data_matricula DATE NOT NULL,
+      ativo BOOLEAN NOT NULL DEFAULT TRUE
+);
