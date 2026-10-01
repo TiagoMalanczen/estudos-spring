@@ -1,7 +1,9 @@
 package com.bookstrore.jpa.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
@@ -12,6 +14,8 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "book")
+@AllArgsConstructor
+@NoArgsConstructor
 public class BookEntity  {
 
     @Id

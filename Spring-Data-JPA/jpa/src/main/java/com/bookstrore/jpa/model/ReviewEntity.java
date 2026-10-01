@@ -3,7 +3,9 @@ package com.bookstrore.jpa.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
@@ -12,6 +14,8 @@ import java.util.UUID;
 @Setter
 @Table(name = "review")
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class ReviewEntity {
 
     @Id

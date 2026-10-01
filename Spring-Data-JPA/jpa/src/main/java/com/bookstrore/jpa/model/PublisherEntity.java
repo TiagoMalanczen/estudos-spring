@@ -2,7 +2,9 @@ package com.bookstrore.jpa.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
@@ -13,6 +15,8 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "publisher")
+@AllArgsConstructor
+@NoArgsConstructor
 public class PublisherEntity {
 
     @Id
